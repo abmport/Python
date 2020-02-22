@@ -1,5 +1,5 @@
-print ("Exercicio Aula 03 - Dicionários \n \n")
-
+#Exercicio Aula 03 - Dicionários
+'''
 produtos={}
 
 produtos["Nescau"]=4.50
@@ -11,8 +11,8 @@ produtos["Ventilador"]=169.90
 for item in produtos:
     if produtos[item]>50.00:
         print (item, produtos[item])
-
-print ("2º Exercicio Python - Dicionário \n \n")
+'''
+#("2º Exercicio Python - Dicionário \n \n")
 
 
 def calcular_media(notas, nome):
@@ -37,5 +37,18 @@ media = calcular_media(notas, nome)
 
 print ("Média do aluno: ", media)
 
+
+#AC01
+#Função para Pesquisar Aluno
+
+
+def pesquisar_aluno(alunos, nome):
+    if nome in alunos:
+        print ("O nome pesquisado eh: ",nome)
+    else
+        return 0
+
+nome = "Abner"
+pesquisa = pesquisar_aluno(notas,nome)
 
 
