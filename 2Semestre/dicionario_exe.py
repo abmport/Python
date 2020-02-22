@@ -44,11 +44,12 @@ print ("Média do aluno: ", media)
 
 def pesquisar_aluno(alunos, nome):
     if nome in alunos:
-        print ("O nome pesquisado eh: ",nome)
-    else
-        return 0
+        print ("O nome aluno é: {}".format(nome))
+        print ("As notas do {} são {}: ".format(nome, alunos[nome]))
+    else:
+        return print ([])
 
-nome = "Abner"
-pesquisa = pesquisar_aluno(notas,nome)
+nome = "sdds"
+pesquisa = pesquisar_aluno(notas, nome)
 
 
