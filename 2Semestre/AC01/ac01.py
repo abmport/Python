@@ -34,6 +34,12 @@ def remover_aluno(alunos, nome):
 
 
 def pesquisar_aluno(alunos, nome):
+    if nome in alunos:
+        print ("O nome aluno é: {}".format(nome))
+        print ("As notas do {} são {}: ".format(nome, alunos[nome]))
+    else:
+        return print ([])
+        
     '''
     Essa função deve retornar a lista com as notas de um aluno.
     Entrada:
