@@ -17,7 +17,12 @@ def remover_aluno(alunos, nome):
 
 def pesquisar_aluno(alunos, nome):    
     if nome in alunos:
-        print ("O nome aluno é: {}".format(nome))
-        print ("As notas do {} são {}: ".format(nome, alunos[nome]))
+        print (alunos[nome])
     else:
         return print ([])
+
+def calcular_media_turma(alunos):
+    s=0
+    for x in produtos:
+        s=s+float(produtos[x])/len(produtos)
+    return print (s)
