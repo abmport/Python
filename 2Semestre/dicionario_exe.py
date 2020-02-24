@@ -54,20 +54,28 @@ pesquisa = pesquisar_aluno(notas, nome)
 '''
 #Função para calcular media turma
 
-produtos={}
+alunos={}
 
-produtos["Nescau"]=4.50
-produtos["Toddy"]=5.90
-produtos["Leite"]=2.50
-produtos["Jack-Daniels"]=99.90
-produtos["Ventilador"]=169.90
+alunos["Abner"]=[4.50]
+alunos["Mandy"]=[5.90]
+alunos["Vinicius"]=[2.50]
+
 
 def calcular_media_turma(alunos):
     s=0
-    for x in produtos:
-        s=s+float(produtos[x])/len(produtos)
-    return print (s)
+    for x in alunos:
+        s=s+float(alunos[x])/len(alunos)
+    return s
 
-calcular_media_turma(produtos)
+'''
+def calcular_media_turma(alunos):
+    somaNotas = 0
+    somaTnotas = 0
+    for aluno in alunos:
+        somaNotas += sum(alunos[aluno])
+        somaTnotas += len(alunos[aluno])
+    return '{:.1f}'.format(somaNotas/somaTnotas)
+'''
 
+print(calcular_media_turma(alunos))
 
