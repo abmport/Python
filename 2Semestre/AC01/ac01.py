@@ -25,13 +25,16 @@ def pesquisar_aluno(alunos, nome):
         return []
 
 
-def media(atividades):
-     for a in atividades:
+def calcular_media(alunos, nome):
+    if nome in alunos:
         med = 0
-        for y in range(len(atividades[a])):
-            med += atividades[a][y]
-        med = med / len(atividades[a])
-        return a, med
+        for y in range(len(alunos[nome])):
+            med += alunos[nome][y]
+        med = med / len(alunos[nome])
+        return nome, med
+    else:
+        return 0
+
 
 def calcular_media_turma(alunos):
     somaNotas = 0
@@ -40,4 +43,3 @@ def calcular_media_turma(alunos):
         somaNotas += sum(alunos[aluno])
         somaTnotas += len(alunos[aluno])
     return '{:.1f}'.format(somaNotas/somaTnotas)
-
