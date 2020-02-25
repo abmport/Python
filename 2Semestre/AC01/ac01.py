@@ -20,9 +20,10 @@ def remover_aluno(alunos, nome):
 
 def pesquisar_aluno(alunos, nome):
     if nome in alunos:
-        print(alunos[nome])
+        return alunos[nome]
     else:
-        return print([])
+        return []
+
 
 def media(atividades):
      for a in atividades:
@@ -33,7 +34,10 @@ def media(atividades):
         return a, med
 
 def calcular_media_turma(alunos):
-    s=0
-    for x in produtos:
-        s=s+float(produtos[x])/len(produtos)
-    return print (s)
+    somaNotas = 0
+    somaTnotas = 0
+    for aluno in alunos:
+        somaNotas += sum(alunos[aluno])
+        somaTnotas += len(alunos[aluno])
+    return '{:.1f}'.format(somaNotas/somaTnotas)
+
