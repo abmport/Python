@@ -42,6 +42,4 @@ def calcular_media_turma(alunos):
     for aluno in alunos:
         somaNotas += sum(alunos[aluno])
         somaTnotas += len(alunos[aluno])
-    return '{:.1f}'.format(somaNotas/somaTnotas)
-
-    
+    return '{:.2f}'.format(somaNotas/somaTnotas)
