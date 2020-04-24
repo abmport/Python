@@ -1,0 +1,105 @@
+DESCRIÇÃO:
+Uma indústria instalada nos arredores da cidade adquiriu um grupo de 4 geradores de energia elétrica composto por motores à diesel, que podem gerar energia suficiente para manter as operações por tempo indeterminado (enquanto houver combustível nos tanques dos geradores). 
+Apesar de terem sido adquiridos do mesmo fabricante, os geradores possuem caracteristicas diferentes, como potencia, capacidade de geração de energia e tamanho do tanque de combustível.
+Cada gerador recebeu um nome para identificá-los: G1, G2, G3 e G4. 
+Quando há falta de energia, o gerador G1 é ligado automaticamente, sendo responsável pela iluminação e tomadas elétricas. 
+Os demais são ligados manualmente, dependendo de quantas máquinas da fábrica estão sendo usadas no momento, mas só entram em funcionamento se houver combustível em seu tanque e se G1 estiver ativo.
+A indústria deseja adquirir um software para gerenciar o acionamento dos geradores, tendo a necessidade dos seguintes recursos:
+Exibição de um menu com as seguintes opções:
+1 - Acionamento manual de gerador
+2 - Status dos geradores
+3 - Status dos tanques de combustível
+4 - Abastecer tanque de combustível
+5 - Detalhes do gerador
+6 - Sair
+
+A opção de Acionamento manual de gerador deve apresentar uma tela solicitando a digitação do nome do gerador a ser ligado/desligado.
+Informe o Nome do Gerador:
+O sistema deve verificar o estado atual do gerador (Se o Gerador informado não existir, deve ser exibida uma mensagem de erro e retornar para o menu inicial)
+Se ele estiver desligado, exibe uma mensagem perguntando se o usuário deseja ligá-lo
+Se ele estiver ligado, exibe uma mensagem perguntando se o usuário deseja desligá-lo.
+G1 está Desligado. Deseja Ligar?
+1 - Sim
+2 - Não
+
+G1 está Ligado. Deseja Desligar?
+1 - Sim
+2 - Não
+Se o status for alterado, exibir uma mensagem de confirmação e retorna ao menu inicial.
+G1 foi Ligado/Desligado com sucesso
+Se o gerador não puder ser ligado/desligado por algum motivo, deve ser exibida uma mensagem de erro e retornar ao menu inicial.
+Sabe-se que cada vez que um gerador é acionado, 50 litros de combustível são consumidos de seu tanque. 
+Os geradores só podem estar ligados se G1 também estiver ligado, e se tiver combustível suficiente.
+O gerador não liga se o tanque estiver abaixo de 50 litros. 
+G2 não pode ser ligado por que G1 está desligado
+
+G4 não pode ser ligado por falta de combustível
+
+
+A opção Status dos geradores mostra o status atual de todos os geradores. 
+Como cada gerador é responsável por uma área da fábrica, é possível que apenas G1 e G3, por exemplo, estejam ligados em um determinado momento.
+Após mostrar as informações, o sistema deve voltar ao menu principal.
+STATUS DOS GERADORES:
+G1 - Ligado
+G2 - Ligado
+G3 - Desligado
+G4 – Ligado
+
+
+A opção Status dos tanques de combustível mostra quanto de combustível resta nos tanques (a informação é coletada por sensores existentes no tanque).
+Deve ser exibido dois valores: o primeiro valor mostrado é a leitura atual do sensor, o segundo valor é a capacidade total do tanque. Se o tanque possui menos de 20% de sua capacidade total, deve ser exibido a mensagem ABASTECER ao lado da informação.
+STATUS DOS TANQUES:
+40/500 litros (ABASTECER)
+250/400 litros
+30/400 litros (ABSTECER)
+850/850 litros
+O sistema deve voltar ao menu principal após exibir as informações.
+
+
+A opção Abastecer tanque de combustível deve perguntar o nome do tanque e a quantidade de litros de combustível que será adicionada. 
+Nome do Gerador: G2
+Quantidade de Litros de Combustível: 50
+Não é possível abastecer uma quantidade de combustível que ultrapasse a capacidade máxima dos tanques. 
+Mostre mensagens de confirmação ou de erro ocorrido durante o abastecimento e retorne ao menu principal.
+
+
+A opção detalhes do gerador deve apresentar uma tela solicitando a digitação do nome do gerador a ser consultado.
+Informe o Nome do Gerador:
+O sistema deve exibir as informações sobre o gerador escolhido e retornar ao menu principal.
+Se o Gerador informado não existir, deve ser exibida uma mensagem de erro e retornar para o menu inicial
+DETALHES DO GERADOR
+Nome: G2
+Potência: 85
+Capacidade de geração de energia: 7000
+Tamanho do Tanque: 400
+Status: Desligado
+
+A opção Sair encerra o programa.
+O programa só deve ser encerrado com essa opção. 
+
+TAREFA:
+Desenvolva um programa Orientado a Objetos que satisfaça as especificações descritas acima. Considere que:
+O programa deve especificar a(s) classe(s) necessárias para a solução do problema.
+O programa deve criar os objetos necessários e gerenciá-los. 
+Aplique o encapsulamento nas classes, de forma que todos os atributos sejam privados. 
+Implemente métodos get/set sempre que necessário.
+Os exemplos de telas e mensagens exibidos no enunciado desse trabalho podem ser alterados, desde que o sistema siga as mesmas regras descritas anteriormente.
+
+ATENÇÃO:
+
+Insira no início do programa um comentário com os nomes dos alunos do grupo (trabalhos que não apresentarem o nome dos integrantes terão um desconto de 0,5 ponto).
+Trabalhos que sejam implementados sem a utilização do paradigma de programação orientada a objetos receberão nota zero.
+Arquivos com erros de sintaxe (ou seja, que não executam) receberão nota zero.
+Não serão aceitos trabalhos que não sejam arquivos Python (doc, pdf, txt, links para git, etc.)
+Caso seja identificada cópia entre trabalhos, a nota dos grupos envolvidos será zerada (todos os trabalhos passarão por ferramentas de detecção de cópia).
+Não serão aceitos trabalhos entregues em atraso.
+
+
+CRITÉRIOS DE AVALIAÇÃO:
+4 pontos: Funcionamento correto conforme a especificação
+1 ponto: Definição e implementação de classes, atributos e métodos
+1 ponto: Criação das instancias dos objetos
+2 pontos: Encapsulamento (atributos privados, utilização de métodos get e set)
+1 ponto: Interface com usuário (interação de menus, mensagens de confirmação e erro, solicitação e exibição das informações)
+1 ponto: Organização do código fonte (atendimento ao padrão e estilo PEP8)
+
