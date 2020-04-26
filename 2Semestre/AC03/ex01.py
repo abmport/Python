@@ -10,18 +10,6 @@ import sys
 import gerador
 
 
-def buscar_gerador(nome):
-    if nome == "G1":
-        nome = gerador.Gerador("G1", "100", "5000", "500")
-    if nome == "G2":
-        nome = gerador.Gerador("G2", "80", "4000", "400")
-    if nome == "G3":
-        nome = gerador.Gerador("G3", "70", "3000", "350")
-    if nome == "G4":
-        nome = gerador.Gerador("G4", "60", "2000", "300")
-    return nome
-
-
 def exibir_menu():
     print("1 - Acionamento manual de gerador")
     print("2 - Status dos geradores")
@@ -34,7 +22,7 @@ def exibir_menu():
         if opcao_menu == 1:
             acionamento_gerador()
         if opcao_menu == 2:
-            return status_gerador(opcao_menu)
+            return status_gerador()
         if opcao_menu == 3:
             return status_tanque(opcao_menu)
         if opcao_menu == 4:
@@ -47,6 +35,18 @@ def exibir_menu():
         return print("Opção Incorreta, digite novamente!"), exibir_menu()
 
 
+def buscar_gerador(nome):
+    if nome == "G1":
+        nome = gerador.Gerador("G1", "100", "5000", "500")
+    if nome == "G2":
+        nome = gerador.Gerador("G2", "80", "4000", "400")
+    if nome == "G3":
+        nome = gerador.Gerador("G3", "70", "3000", "350")
+    if nome == "G4":
+        nome = gerador.Gerador("G4", "60", "2000", "300")
+    return nome
+
+
 def acionamento_gerador():
     nomeG = input("Informe o Nome do Gerador: ")
     if buscar_gerador(nomeG).get_status:
@@ -55,7 +55,8 @@ def acionamento_gerador():
         if op == 1:
             buscar_gerador(nomeG).ligar_gerador()
             print(buscar_gerador(nomeG).get_nome(),
-                  " foi ligado com sucesso. ")
+                  " foi ligado com sucesso. ", buscar_gerador(nomeG).
+                  get_status())
             exibir_menu()
         elif op == 2:
             exibir_menu()
@@ -71,15 +72,12 @@ def acionamento_gerador():
             exibir_menu()
 
 
-def status_gerador(opcao_menu):
-    '''
-        Status dos Geradores
-        G1 - Ligado
-        G2 - Ligado
-        G3 - Desligado
-        G4 – Ligado
-    '''
-    return print(opcao_menu, "entrou 2")
+def status_gerador():
+    print("Status dos Geradores: ")
+    print("G1 - ", buscar_gerador("G1").get_status())
+    print("G2 - ", buscar_gerador("G2").get_status())
+    print("G3 - ", buscar_gerador("G3").get_status())
+    print("G4 - ", buscar_gerador("G4").get_status())
 
 
 def status_tanque(self):
