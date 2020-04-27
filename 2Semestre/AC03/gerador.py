@@ -28,8 +28,8 @@ class Gerador:
     def get_combustivel(self):
         return self.__combustivel
 
-    def set_combustivel(self, combustevel):
-        self.__combustivel = combustevel
+    def set_combustivel(self, combustivel):
+        self.__combustivel = combustivel
 
     def get_tanque(self):
         return self.__tanque
