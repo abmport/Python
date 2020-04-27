@@ -4,7 +4,7 @@ class Gerador:
         self.__potencia = potencia        # Potencia do gerador
         self.__capacidade = capacidade    # o quanto pode gerar de energia
         self.__tanque = tanque            # tamanho do tanque
-        self.__status = False             # Ligado / Desligado
+        self.__status = True             # Ligado / Desligado
 
     def get_nome(self):
         return self.__nome
