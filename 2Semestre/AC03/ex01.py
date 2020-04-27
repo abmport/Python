@@ -10,6 +10,18 @@ import sys
 import gerador
 
 
+def buscar_gerador(nome):
+    if nome == "G1":
+        nome = gerador.Gerador("G1", "100", "5000", "500")
+    if nome == "G2":
+        nome = gerador.Gerador("G2", "80", "4000", "400")
+    if nome == "G3":
+        nome = gerador.Gerador("G3", "70", "3000", "350")
+    if nome == "G4":
+        nome = gerador.Gerador("G4", "60", "2000", "300")
+    return nome
+
+
 def exibir_menu():
     print("1 - Acionamento manual de gerador")
     print("2 - Status dos geradores")
@@ -35,21 +47,9 @@ def exibir_menu():
         return print("Opção Incorreta, digite novamente!"), exibir_menu()
 
 
-def buscar_gerador(nome):
-    if nome == "G1":
-        nome = gerador.Gerador("G1", "100", "5000", "500")
-    if nome == "G2":
-        nome = gerador.Gerador("G2", "80", "4000", "400")
-    if nome == "G3":
-        nome = gerador.Gerador("G3", "70", "3000", "350")
-    if nome == "G4":
-        nome = gerador.Gerador("G4", "60", "2000", "300")
-    return nome
-
-
 def acionamento_gerador():
     nomeG = input("Informe o Nome do Gerador: ")
-    if buscar_gerador(nomeG).get_status:
+    if not buscar_gerador(nomeG).get_status():
         print(nomeG, "está Desligado. Deseja Ligar? \n 1 - Sim \n 2 - Não")
         op = int(input())
         if op == 1:
@@ -72,12 +72,21 @@ def acionamento_gerador():
             exibir_menu()
 
 
+def msg_status(gerador):
+    if buscar_gerador(gerador).get_status():
+        gerador = "Ligado"
+    else:
+        gerador = "Desligado"
+    return gerador
+
+
 def status_gerador():
     print("Status dos Geradores: ")
-    print("G1 - ", buscar_gerador("G1").get_status())
-    print("G2 - ", buscar_gerador("G2").get_status())
-    print("G3 - ", buscar_gerador("G3").get_status())
-    print("G4 - ", buscar_gerador("G4").get_status())
+    print(buscar_gerador("G1").get_nome(), msg_status("G1"))
+    print(buscar_gerador("G2").get_nome(), msg_status("G2"))
+    print(buscar_gerador("G3").get_nome(), msg_status("G3"))
+    print(buscar_gerador("G4").get_nome(), msg_status("G4"))
+    exibir_menu()
 
 
 def status_tanque(self):
