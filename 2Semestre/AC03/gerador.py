@@ -3,8 +3,9 @@ class Gerador:
         self.__nome = nome                # nome
         self.__potencia = potencia        # Potencia do gerador
         self.__capacidade = capacidade    # o quanto pode gerar de energia
-        self.__tanque = tanque            # tamanho do tanque
-        self.__status = True             # Ligado / Desligado
+        self.__combustivel = tanque       # Armazena o tanque de combustevel
+        self.__tanque = tanque            # quanto de combustivel o tanque tem
+        self.__status = 'Desligado'             # Ligado / Desligado
 
     def get_nome(self):
         return self.__nome
@@ -24,6 +25,12 @@ class Gerador:
     def set_capacidade(self, capacidade):
         self.__capacidade = capacidade
 
+    def get_combustivel(self):
+        return self.__combustivel
+
+    def set_combustivel(self, combustevel):
+        self.__combustivel = combustevel
+
     def get_tanque(self):
         return self.__tanque
 
@@ -37,7 +44,13 @@ class Gerador:
         self.__status = status
 
     def ligar_gerador(self):
-        return self.set_status(True)
+        self.set_combustivel(-50)
+        return self.set_status('Ligado')
 
     def desligar_gerador(self):
-        return self.set_status(False)
+        return self.set_status('Desligado')
+
+    def abastecer_tanque(self, quantidade):
+        q = quantidade
+        self.__combustivel += q
+        return self.__combustivel

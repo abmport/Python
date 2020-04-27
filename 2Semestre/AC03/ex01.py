@@ -2,24 +2,14 @@
 # Abner de Melo Porto
 # Vinicius Tertuliano
 # Laura Tazue
-# Tratativas Pendentes: ValueError - Gerador que não existe
-# Combustivel < 50 nao liga -
-# Os geradores só liga se o G1 estiver ligado
 
 import sys
 import gerador
 
-
-def buscar_gerador(nome):
-    if nome == "G1":
-        nome = gerador.Gerador("G1", "100", "5000", "500")
-    if nome == "G2":
-        nome = gerador.Gerador("G2", "80", "4000", "400")
-    if nome == "G3":
-        nome = gerador.Gerador("G3", "70", "3000", "350")
-    if nome == "G4":
-        nome = gerador.Gerador("G4", "60", "2000", "300")
-    return nome
+gerador1 = gerador.Gerador("G1", "100", "5000", 500)
+gerador2 = gerador.Gerador("G2", "80", "4000", 40)
+gerador3 = gerador.Gerador("G3", "70", "3000", 350)
+gerador4 = gerador.Gerador("G4", "60", "2000", 300)
 
 
 def exibir_menu():
@@ -49,69 +39,245 @@ def exibir_menu():
 
 def acionamento_gerador():
     nomeG = input("Informe o Nome do Gerador: ")
-    if not buscar_gerador(nomeG).get_status():
-        print(nomeG, "está Desligado. Deseja Ligar? \n 1 - Sim \n 2 - Não")
-        op = int(input())
-        if op == 1:
-            buscar_gerador(nomeG).ligar_gerador()
-            print(buscar_gerador(nomeG).get_nome(),
-                  " foi ligado com sucesso. ", buscar_gerador(nomeG).
-                  get_status())
-            exibir_menu()
-        elif op == 2:
-            exibir_menu()
-    else:
-        print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
-        op = int(input())
-        if op == 1:
-            buscar_gerador(nomeG).desligar_gerador()
-            print(buscar_gerador(nomeG).get_nome(),
-                  " foi desligado com sucesso. ")
-            exibir_menu()
-        elif op == 2:
-            exibir_menu()
-
-
-def msg_status(gerador):
-    if buscar_gerador(gerador).get_status():
-        gerador = "Ligado"
-    else:
-        gerador = "Desligado"
-    return gerador
+    # Verificações do gerador 1
+    if nomeG == gerador1.get_nome():
+        # validar se o gerador esta ligado
+        if 'Desligado' == gerador1.get_status():
+            print(nomeG, "está desligado. Deseja ligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                if gerador1.get_combustivel() >= 50:
+                    gerador1.ligar_gerador()
+                    print("{} foi {} com sucesso. ".format(
+                        gerador1.get_nome(),
+                        gerador1.get_status()))
+                    exibir_menu()
+                else:
+                    print('{} Não pode ser ligado por falta de combustivel'
+                          .format(gerador1.get_nome()))
+                    exibir_menu()
+            elif op == 2:
+                exibir_menu()
+        else:
+            print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                gerador1.desligar_gerador()
+                print("{} foi {} com sucesso. ".format(
+                    gerador1.get_nome(), gerador1.get_status()))
+                exibir_menu()
+            elif op == 2:
+                exibir_menu()
+    # Verificações do gerador 2
+    elif nomeG == gerador2.get_nome():
+        if 'Desligado' == gerador2.get_status():
+            print(nomeG, "está Desligado. Deseja ligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                if 'Ligado' == gerador1.get_status():
+                    if gerador2.get_combustivel() >= 50:
+                        gerador2.ligar_gerador()
+                        print("{} foi {} com sucesso. ".format(
+                            gerador2.get_nome(),
+                            gerador2.get_status()))
+                        exibir_menu()
+                    else:
+                        print('{} Não pode ser ligado por falta de combustivel'
+                              .format(gerador2.get_nome()))
+                        exibir_menu()
+                else:
+                    print("{} Não pode ser ligado por que {} está {}".format(
+                        gerador2.get_nome(),
+                        gerador1.get_nome(),
+                        gerador1.get_status()))
+                    exibir_menu()
+            elif op == 2:
+                exibir_menu()
+        else:
+            print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                gerador2.desligar_gerador()
+                print("{} foi {} com sucesso. ".format(
+                    gerador2.get_nome(), gerador2.get_status()))
+                exibir_menu()
+            elif op == 2:
+                exibir_menu()
+    # Verificações do gerador 3
+    elif nomeG == gerador3.get_nome():
+        if 'Desligado' == gerador3.get_status():
+            print(nomeG, "está Desligado. Deseja ligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                if 'Ligado' == gerador1.get_status():
+                    if gerador3.get_combustivel() >= 50:
+                        gerador3.ligar_gerador()
+                        print("{} foi {} com sucesso. ".format(
+                            gerador3.get_nome(),
+                            gerador3.get_status()))
+                        exibir_menu()
+                    else:
+                        print('{} Não pode ser ligado por falta de combustivel'
+                              .format(gerador3.get_nome()))
+                        exibir_menu()
+                else:
+                    print("{} Não pode ser ligado por que {} está {}".format(
+                        gerador3.get_nome(),
+                        gerador1.get_nome(),
+                        gerador1.get_status()))
+                    exibir_menu()
+            elif op == 2:
+                exibir_menu()
+        else:
+            print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                gerador3.desligar_gerador()
+                print("{} foi {} com sucesso. ".format(
+                    gerador3.get_nome(), gerador3.get_status()))
+                exibir_menu()
+            elif op == 2:
+                exibir_menu()
+    # Verificações do gerador 4
+    elif nomeG == gerador4.get_nome():
+        if 'Desligado' == gerador4.get_status():
+            print(nomeG, "está Desligado. Deseja ligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                if 'Ligado' == gerador1.get_status():
+                    if gerador4.get_combustivel() >= 50:
+                        gerador4.ligar_gerador()
+                        print("{} foi {} com sucesso. ".format(
+                            gerador4.get_nome(),
+                            gerador4.get_status()))
+                        exibir_menu()
+                    else:
+                        print('{} Não pode ser ligado por falta de combustivel'
+                              .format(gerador4.get_nome()))
+                        exibir_menu()
+                else:
+                    print("{} Não pode ser ligado por que {} está {}".format(
+                        gerador2.get_nome(),
+                        gerador1.get_nome(),
+                        gerador1.get_status()))
+                    exibir_menu()
+            elif op == 2:
+                exibir_menu()
+        else:
+            print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
+            op = int(input())
+            if op == 1:
+                gerador4.desligar_gerador()
+                print("{} foi {} com sucesso. ".format(
+                    gerador4.get_nome(), gerador4.get_status()))
+                exibir_menu()
+            elif op == 2:
+                exibir_menu()
 
 
 def status_gerador():
     print("Status dos Geradores: ")
-    print(buscar_gerador("G1").get_nome(), msg_status("G1"))
-    print(buscar_gerador("G2").get_nome(), msg_status("G2"))
-    print(buscar_gerador("G3").get_nome(), msg_status("G3"))
-    print(buscar_gerador("G4").get_nome(), msg_status("G4"))
+    print(gerador1.get_nome(), gerador1.get_status())
+    print(gerador2.get_nome(), gerador2.get_status())
+    print(gerador3.get_nome(), gerador3.get_status())
+    print(gerador4.get_nome(), gerador4.get_status())
     exibir_menu()
 
 
+'''
 def status_tanque(self):
     print("Status dos Tanques:")
-    '''
+
         40/500 litros (ABASTECER)
         250/400 litros
         30/400 litros (ABSTECER)
         850/850 litros
-    '''
+
     return print("entrou 3")
+'''
 
 
 def abastacer(opcao_menu):
+    nomeG = input("Informe o Nome do Gerador: ")
+    quant = input("Quantidade de litros de combustível: ")
+    if nomeG == gerador1.get_nome():
+        if quant < gerador1.get_tanque():
+            if gerador1.get_combustivel() < ((20 * gerador1.get_tanque())/100):
+                gerador1.abastecer_tanque(quant)
+                exibir_menu()
+            else:
+                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                exibir_menu()
+        else:
+            print("Qunatidade de combustível excede o tamanho do tanque.")
+            exibir_menu()
+
+    elif nomeG == gerador2.get_nome():
+        if quant < gerador2.get_tanque():
+            if gerador2.get_combustivel() < ((20 * gerador2.get_tanque())/100):
+                gerador2.abastecer_tanque(quant)
+                exibir_menu()
+            else:
+                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                exibir_menu()
+        else:
+            print("Qunatidade de combustível excede o tamanho do tanque.")
+            exibir_menu()
+    elif nomeG == gerador3.get_nome():
+        if quant < gerador3.get_tanque():
+            if gerador3.get_combustivel() < ((20 * gerador3.get_tanque())/100):
+                gerador3.abastecer_tanque(quant)
+                exibir_menu()
+            else:
+                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                exibir_menu()
+        else:
+            print("Qunatidade de combustível excede o tamanho do tanque.")
+            exibir_menu()
+    elif nomeG == gerador4.get_nome():
+        if quant < gerador4.get_tanque():
+            if gerador4.get_combustivel() < ((20 * gerador4.get_tanque())/100):
+                gerador4.abastecer_tanque(quant)
+                exibir_menu()
+            else:
+                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                exibir_menu()
+        else:
+            print("Qunatidade de combustível excede o tamanho do tanque.")
+            exibir_menu()
     return print(opcao_menu, "entrou 4")
 
 
 def detalhes_gerador():
     nomeG = input("Informe o Nome do Gerador:")
-    print("Nome:", buscar_gerador(nomeG).get_nome())
-    print("Potência:", buscar_gerador(nomeG).get_potencia())
-    print("Capacidade:", buscar_gerador(nomeG).get_capacidade())
-    print("Tanque:", buscar_gerador(nomeG).get_tanque())
-    print("Status:", buscar_gerador(nomeG).get_status())
-    exibir_menu()
+    if nomeG == gerador4.get_nome():
+        print("Nome: ", gerador1.get_nome())
+        print("Potência: ", gerador1.get_potencia())
+        print("Capacidade: ", gerador1.get_capacidade())
+        print("Tanque: ", gerador1.get_combustivel())
+        print("Status: ", gerador1.get_status())
+        exibir_menu()
+    elif nomeG == gerador2.get_nome():
+        print("Nome: ", gerador2.get_nome())
+        print("Potência: ", gerador2.get_potencia())
+        print("Capacidade: ", gerador2.get_capacidade())
+        print("Tanque: ", gerador2.get_tanque())
+        print("Status: ", gerador2.get_status())
+        exibir_menu()
+    elif nomeG == gerador3.get_nome():
+        print("Nome: ", gerador3.get_nome())
+        print("Potência: ", gerador3.get_potencia())
+        print("Capacidade: ", gerador3.get_capacidade())
+        print("Tanque: ", gerador3.get_tanque())
+        print("Status: ", gerador3.get_status())
+        exibir_menu()
+    elif nomeG == gerador4.get_nome():
+        print("Nome: ", gerador4.get_nome())
+        print("Potência: ", gerador4.get_potencia())
+        print("Capacidade: ", gerador4.get_capacidade())
+        print("Tanque: ", gerador4.get_tanque())
+        print("Status: ", gerador4.get_status())
+        exibir_menu()
 
 
 exibir_menu()
