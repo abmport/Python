@@ -18,7 +18,7 @@ def exibir_menu():
     print("3 - Status dos tanques de combustível")
     print("4 - Abastecer tanque de combustível")
     print("5 - Detalhes do gerador")
-    print("6 - Sair")
+    print("6 - Sair \n")
     opcao_menu = int(input("Escolha uma opção: "))
     if opcao_menu <= 6 and opcao_menu >= 1:
         if opcao_menu == 1:
@@ -26,7 +26,7 @@ def exibir_menu():
         if opcao_menu == 2:
             return status_gerador()
         if opcao_menu == 3:
-            return status_tanque(opcao_menu)
+            return status_tanque()
         if opcao_menu == 4:
             return abastacer(opcao_menu)
         if opcao_menu == 5:
@@ -184,32 +184,33 @@ def status_gerador():
     exibir_menu()
 
 
-'''
-def status_tanque(self):
+def status_tanque():
     print("Status dos Tanques:")
-
-        40/500 litros (ABASTECER)
-        250/400 litros
-        30/400 litros (ABSTECER)
-        850/850 litros
-
-    return print("entrou 3")
-'''
+    print(gerador1.get_nome(), "-", gerador1.get_combustivel(),
+          "/", gerador1.get_tanque())
+    print(gerador2.get_nome(), "-", gerador2.get_combustivel(),
+          "/", gerador2.get_tanque())
+    print(gerador3.get_nome(), "-", gerador3.get_combustivel(),
+          "/", gerador3.get_tanque())
+    print(gerador4.get_nome(), "-", gerador4.get_combustivel(),
+          "/", gerador4.get_tanque())
+    exibir_menu()
 
 
 def abastacer(opcao_menu):
     nomeG = input("Informe o Nome do Gerador: ")
-    quant = input("Quantidade de litros de combustível: ")
+    quant = int(input("Quantidade de litros de combustível: "))
     if nomeG == gerador1.get_nome():
         if quant < gerador1.get_tanque():
             if gerador1.get_combustivel() < ((20 * gerador1.get_tanque())/100):
                 gerador1.abastecer_tanque(quant)
                 exibir_menu()
             else:
-                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                print("O nivel do tanque não está a baixo de 20% para ser"
+                      "abastecido")
                 exibir_menu()
         else:
-            print("Qunatidade de combustível excede o tamanho do tanque.")
+            print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
 
     elif nomeG == gerador2.get_nome():
@@ -218,10 +219,11 @@ def abastacer(opcao_menu):
                 gerador2.abastecer_tanque(quant)
                 exibir_menu()
             else:
-                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                print("O nivel do tanque não está a baixo de 20%"
+                      "para ser abastecido")
                 exibir_menu()
         else:
-            print("Qunatidade de combustível excede o tamanho do tanque.")
+            print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
     elif nomeG == gerador3.get_nome():
         if quant < gerador3.get_tanque():
@@ -229,10 +231,9 @@ def abastacer(opcao_menu):
                 gerador3.abastecer_tanque(quant)
                 exibir_menu()
             else:
-                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
                 exibir_menu()
         else:
-            print("Qunatidade de combustível excede o tamanho do tanque.")
+            print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
     elif nomeG == gerador4.get_nome():
         if quant < gerador4.get_tanque():
@@ -240,12 +241,13 @@ def abastacer(opcao_menu):
                 gerador4.abastecer_tanque(quant)
                 exibir_menu()
             else:
-                print("O nivel do tanque não está a baixo de 20% para ser abastecido ")
+                print("O nivel do tanque não está a baixo de 20%"
+                      "para ser abastecido ")
                 exibir_menu()
         else:
-            print("Qunatidade de combustível excede o tamanho do tanque.")
+            print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
-    return print(opcao_menu, "entrou 4")
+    return print(opcao_menu)
 
 
 def detalhes_gerador():
