@@ -44,7 +44,7 @@ class Gerador:
         self.__status = status
 
     def ligar_gerador(self):
-        self.set_combustivel(-50)
+        self.__combustivel -= 50
         return self.set_status('Ligado')
 
     def desligar_gerador(self):

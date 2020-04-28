@@ -20,6 +20,7 @@ def exibir_menu():
     print("5 - Detalhes do gerador")
     print("6 - Sair \n")
     opcao_menu = int(input("Escolha uma opção: "))
+
     if opcao_menu <= 6 and opcao_menu >= 1:
         if opcao_menu == 1:
             acionamento_gerador()
@@ -28,7 +29,7 @@ def exibir_menu():
         if opcao_menu == 3:
             return status_tanque()
         if opcao_menu == 4:
-            return abastacer(opcao_menu)
+            return abastacer()
         if opcao_menu == 5:
             return detalhes_gerador()
         if opcao_menu == 6:
@@ -186,68 +187,80 @@ def status_gerador():
 
 def status_tanque():
     print("Status dos Tanques:")
-    print(gerador1.get_nome(), "-", gerador1.get_combustivel(),
-          "/", gerador1.get_tanque())
-    print(gerador2.get_nome(), "-", gerador2.get_combustivel(),
-          "/", gerador2.get_tanque())
-    print(gerador3.get_nome(), "-", gerador3.get_combustivel(),
-          "/", gerador3.get_tanque())
-    print(gerador4.get_nome(), "-", gerador4.get_combustivel(),
-          "/", gerador4.get_tanque())
+    if gerador1.get_combustivel() < (20 * gerador1.get_tanque())/100:
+        print("{} - {} / {} (ABASTECER)".format(gerador1.get_nome(),
+                                                gerador1.get_combustivel(),
+                                                gerador1.get_tanque()))
+    else:
+        print("{} - {} / {} ".format(gerador1.get_nome(),
+                                     gerador1.get_combustivel(),
+                                     gerador1.get_tanque()))
+
+    if gerador2.get_combustivel() < (20 * gerador2.get_tanque())/100:
+        print("{} - {} / {} (ABASTECER)".format(gerador2.get_nome(),
+                                                gerador2.get_combustivel(),
+                                                gerador2.get_tanque()))
+    else:
+        print("{} - {} / {} ".format(gerador2.get_nome(),
+                                     gerador2.get_combustivel(),
+                                     gerador2.get_tanque()))
+
+    if gerador3.get_combustivel() < (20 * gerador3.get_tanque())/100:
+        print("{} - {} / {} (ABASTECER)".format(gerador3.get_nome(),
+                                                gerador3.get_combustivel(),
+                                                gerador3.get_tanque()))
+    else:
+        print("{} - {} / {} ".format(gerador3.get_nome(),
+                                     gerador3.get_combustivel(),
+                                     gerador3.get_tanque()))
+
+    if gerador4.get_combustivel() < (20 * gerador4.get_tanque())/100:
+        print("{} - {} / {} (ABASTECER)".format(gerador4.get_nome(),
+                                                gerador4.get_combustivel(),
+                                                gerador4.get_tanque()))
+    else:
+        print("{} - {} / {} ".format(gerador4.get_nome(),
+                                     gerador4.get_combustivel(),
+                                     gerador4.get_tanque()))
     exibir_menu()
 
 
-def abastacer(opcao_menu):
+def abastacer():
     nomeG = input("Informe o Nome do Gerador: ")
     quant = int(input("Quantidade de litros de combustível: "))
     if nomeG == gerador1.get_nome():
         if quant < gerador1.get_tanque():
-            if gerador1.get_combustivel() < ((20 * gerador1.get_tanque())/100):
-                gerador1.abastecer_tanque(quant)
-                exibir_menu()
-            else:
-                print("O nivel do tanque não está a baixo de 20% para ser"
-                      "abastecido")
-                exibir_menu()
+            gerador1.abastecer_tanque(quant)
+            print("Tanque foi abastecido com sucesso.")
+            exibir_menu()
         else:
             print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
 
     elif nomeG == gerador2.get_nome():
         if quant < gerador2.get_tanque():
-            if gerador2.get_combustivel() < ((20 * gerador2.get_tanque())/100):
-                gerador2.abastecer_tanque(quant)
-                exibir_menu()
-            else:
-                print("O nivel do tanque não está a baixo de 20%"
-                      "para ser abastecido")
-                exibir_menu()
+            gerador2.abastecer_tanque(quant)
+            print("Tanque foi abastecido com sucesso.")
+            exibir_menu()
         else:
             print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
     elif nomeG == gerador3.get_nome():
         if quant < gerador3.get_tanque():
-            if gerador3.get_combustivel() < ((20 * gerador3.get_tanque())/100):
-                gerador3.abastecer_tanque(quant)
-                exibir_menu()
-            else:
-                exibir_menu()
+            gerador3.abastecer_tanque(quant)
+            print("Tanque foi abastecido com sucesso.")
+            exibir_menu()
         else:
             print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
     elif nomeG == gerador4.get_nome():
         if quant < gerador4.get_tanque():
-            if gerador4.get_combustivel() < ((20 * gerador4.get_tanque())/100):
-                gerador4.abastecer_tanque(quant)
-                exibir_menu()
-            else:
-                print("O nivel do tanque não está a baixo de 20%"
-                      "para ser abastecido ")
-                exibir_menu()
+            gerador4.abastecer_tanque(quant)
+            print("Tanque foi abastecido com sucesso.")
+            exibir_menu()
         else:
             print("Quantidade de combustível excede o tamanho do tanque.")
             exibir_menu()
-    return print(opcao_menu)
 
 
 def detalhes_gerador():
@@ -263,21 +276,21 @@ def detalhes_gerador():
         print("Nome: ", gerador2.get_nome())
         print("Potência: ", gerador2.get_potencia())
         print("Capacidade: ", gerador2.get_capacidade())
-        print("Tanque: ", gerador2.get_tanque())
+        print("Tanque: ", gerador2.get_combustivel())
         print("Status: ", gerador2.get_status())
         exibir_menu()
     elif nomeG == gerador3.get_nome():
         print("Nome: ", gerador3.get_nome())
         print("Potência: ", gerador3.get_potencia())
         print("Capacidade: ", gerador3.get_capacidade())
-        print("Tanque: ", gerador3.get_tanque())
+        print("Tanque: ", gerador3.get_combustivel())
         print("Status: ", gerador3.get_status())
         exibir_menu()
     elif nomeG == gerador4.get_nome():
         print("Nome: ", gerador4.get_nome())
         print("Potência: ", gerador4.get_potencia())
         print("Capacidade: ", gerador4.get_capacidade())
-        print("Tanque: ", gerador4.get_tanque())
+        print("Tanque: ", gerador4.get_combustivel())
         print("Status: ", gerador4.get_status())
         exibir_menu()
 
