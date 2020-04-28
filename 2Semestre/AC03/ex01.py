@@ -7,7 +7,7 @@ import sys
 import gerador
 
 gerador1 = gerador.Gerador("G1", "100", "5000", 500)
-gerador2 = gerador.Gerador("G2", "80", "4000", 40)
+gerador2 = gerador.Gerador("G2", "80", "4000", 400)
 gerador3 = gerador.Gerador("G3", "70", "3000", 350)
 gerador4 = gerador.Gerador("G4", "60", "2000", 300)
 
@@ -227,45 +227,48 @@ def status_tanque():
 
 def abastacer():
     nomeG = input("Informe o Nome do Gerador: ")
-    quant = int(input("Quantidade de litros de combustível: "))
+    quant = int(input("Quantidade de litros de combustível:"))
     if nomeG == gerador1.get_nome():
-        if quant < gerador1.get_tanque():
+        if quant+gerador1.get_combustivel() <= gerador1.get_tanque():
             gerador1.abastecer_tanque(quant)
-            print("Tanque foi abastecido com sucesso.")
+            print("\n Tanque foi abastecido com sucesso.\n ")
             exibir_menu()
         else:
-            print("Quantidade de combustível excede o tamanho do tanque.")
+            print("\n Quantidade de combustível excede o tamanho do tanque.\n")
             exibir_menu()
 
     elif nomeG == gerador2.get_nome():
-        if quant < gerador2.get_tanque():
+        if quant+gerador2.get_combustivel() <= gerador2.get_tanque():
             gerador2.abastecer_tanque(quant)
-            print("Tanque foi abastecido com sucesso.")
+            print("\n Tanque foi abastecido com sucesso.\n ")
             exibir_menu()
         else:
-            print("Quantidade de combustível excede o tamanho do tanque.")
+            print("\n Quantidade de combustível excede o tamanho do tanque.\n")
             exibir_menu()
     elif nomeG == gerador3.get_nome():
-        if quant < gerador3.get_tanque():
+        if quant+gerador3.get_combustivel() <= gerador3.get_tanque():
             gerador3.abastecer_tanque(quant)
-            print("Tanque foi abastecido com sucesso.")
+            print("\n Tanque foi abastecido com sucesso.\n ")
             exibir_menu()
         else:
-            print("Quantidade de combustível excede o tamanho do tanque.")
+            print("\n Quantidade de combustível excede o tamanho do tanque.\n")
             exibir_menu()
     elif nomeG == gerador4.get_nome():
-        if quant < gerador4.get_tanque():
+        if quant+gerador4.get_combustivel() <= gerador4.get_tanque():
             gerador4.abastecer_tanque(quant)
             print("Tanque foi abastecido com sucesso.")
             exibir_menu()
         else:
-            print("Quantidade de combustível excede o tamanho do tanque.")
+            print("\n Quantidade de combustível excede o tamanho do tanque.\n")
             exibir_menu()
+    else:
+        print("\n Escolha um gerador válido! \n")
+        exibir_menu()
 
 
 def detalhes_gerador():
     nomeG = input("Informe o Nome do Gerador:")
-    if nomeG == gerador4.get_nome():
+    if nomeG == gerador1.get_nome():
         print("Nome: ", gerador1.get_nome())
         print("Potência: ", gerador1.get_potencia())
         print("Capacidade: ", gerador1.get_capacidade())
@@ -292,6 +295,9 @@ def detalhes_gerador():
         print("Capacidade: ", gerador4.get_capacidade())
         print("Tanque: ", gerador4.get_combustivel())
         print("Status: ", gerador4.get_status())
+        exibir_menu()
+    else:
+        print("\nEscolha um gerador válido!\n")
         exibir_menu()
 
 
