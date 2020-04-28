@@ -59,6 +59,9 @@ def acionamento_gerador():
                     exibir_menu()
             elif op == 2:
                 exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
+                exibir_menu()
         else:
             print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
             op = int(input())
@@ -68,6 +71,9 @@ def acionamento_gerador():
                     gerador1.get_nome(), gerador1.get_status()))
                 exibir_menu()
             elif op == 2:
+                exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
                 exibir_menu()
     # Verificações do gerador 2
     elif nomeG == gerador2.get_nome():
@@ -94,6 +100,9 @@ def acionamento_gerador():
                     exibir_menu()
             elif op == 2:
                 exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
+                exibir_menu()
         else:
             print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
             op = int(input())
@@ -103,6 +112,9 @@ def acionamento_gerador():
                     gerador2.get_nome(), gerador2.get_status()))
                 exibir_menu()
             elif op == 2:
+                exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
                 exibir_menu()
     # Verificações do gerador 3
     elif nomeG == gerador3.get_nome():
@@ -129,6 +141,9 @@ def acionamento_gerador():
                     exibir_menu()
             elif op == 2:
                 exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
+                exibir_menu()
         else:
             print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
             op = int(input())
@@ -138,6 +153,9 @@ def acionamento_gerador():
                     gerador3.get_nome(), gerador3.get_status()))
                 exibir_menu()
             elif op == 2:
+                exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
                 exibir_menu()
     # Verificações do gerador 4
     elif nomeG == gerador4.get_nome():
@@ -164,6 +182,9 @@ def acionamento_gerador():
                     exibir_menu()
             elif op == 2:
                 exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
+                exibir_menu()
         else:
             print(nomeG, "está Ligado. Deseja Desligar? \n 1 - Sim \n 2 - Não")
             op = int(input())
@@ -173,6 +194,9 @@ def acionamento_gerador():
                     gerador4.get_nome(), gerador4.get_status()))
                 exibir_menu()
             elif op == 2:
+                exibir_menu()
+            else:
+                print("\n Opção inválida, escolha novamente!\n")
                 exibir_menu()
 
 
