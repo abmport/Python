@@ -13,11 +13,12 @@ gerador4 = gerador.Gerador("G4", "60", "2000", 300)
 
 
 def exibir_menu():
+    print("")
     print("1 - Acionamento manual de gerador")
     print("2 - Status dos geradores")
     print("3 - Status dos tanques de combustível")
     print("4 - Abastecer tanque de combustível")
-    print("5 - Detalhes do gerador")
+    print("5 - Detalhes do gerador \n")
     print("6 - Sair \n")
     opcao_menu = int(input("Escolha uma opção: "))
 
