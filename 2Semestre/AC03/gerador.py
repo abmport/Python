@@ -1,3 +1,9 @@
+# Atividade Contínua 03
+# Abner de Melo Porto
+# Vinicius Tertuliano
+# Laura Tazue
+
+
 class Gerador:
     def __init__(self, nome, potencia, capacidade, tanque):
         self.__nome = nome                # nome
