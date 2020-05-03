@@ -3,7 +3,7 @@ class Conta:                            # classe mãe
         self.agencia = agencia
         self.numero = numero
         self.titular = titular
-        self.__saldo = 0                # atributo privado não é herdado pelas classes filhas
+        self.__saldo = 0  # atributo privado não é herdado pelas classes filhas
 
     def set_saldo(self, saldo):
         self.__saldo = saldo
@@ -16,6 +16,7 @@ class Conta:                            # classe mãe
 
     def __teste(self):                      # metodos privados não são herdados
         print("Teste")
+
 
 class ContaEspecial(Conta):
     def __init__(self, agencia, numero, titular, limite):

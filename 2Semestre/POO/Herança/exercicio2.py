@@ -9,6 +9,7 @@
         print("Cor: ", self.cor)
         print("Patas: ", self.numero_patas)
 
+
 class Cachorro(Animal):
     def __init__(self, nome, cor, numero_patas, raca):
         super().__init__(nome, cor, numero_patas)
@@ -18,6 +19,7 @@ class Cachorro(Animal):
         super().exibir_dados()
         print("Raça:", self.raca)
 
+
 a = Animal("Nome", "Branca", 4)
 c = Cachorro("Rex", "Marrom", 4, "Vira Lata")
 
@@ -25,13 +27,4 @@ c = Cachorro("Rex", "Marrom", 4, "Vira Lata")
 a.exibir_dados()
 print("--------------------")
 c.exibir_dados()
-
-
-
-
-
-
-
-
-
 
