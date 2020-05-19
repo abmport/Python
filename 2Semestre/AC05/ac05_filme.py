@@ -65,8 +65,7 @@ class Banco:
         session.commit()
 
     def alterar_avaliacao(self, filme: Filme, avaliacao: float):
-        alterar = session.query(filme).get(filme.id)
-        alterar.avaliacao = avaliacao
+        filme.avaliacao = avaliacao
         session.commit()
 
     def excluir(self, id: int):
